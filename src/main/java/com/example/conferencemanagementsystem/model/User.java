@@ -1,17 +1,21 @@
 package com.example.conferencemanagementsystem.model;
 
+import com.example.conferencemanagementsystem.model.dto.UserDto;
+import org.springframework.beans.factory.annotation.Qualifier;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="account")
 public class User {
     @Id
-    private int id;
     private String username;
     private String password;
 
     public User(int id, String username, String password) {
-        this.id = id;
         this.username = username;
         this.password = password;
     }
@@ -19,12 +23,9 @@ public class User {
     public User() {
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public User(UserDto userDto) {
+        this.username=userDto.getUsername();
+        this.password=userDto.getPassword();
     }
 
     public String getUsername() {
