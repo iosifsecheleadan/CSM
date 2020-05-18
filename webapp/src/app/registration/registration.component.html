@@ -17,7 +17,7 @@
     <br>
     <div class="form-group">
       <label for="password">Password</label>
-      <input type="password" id="password" class="form-control bg-dark text-info" formControlName="passwordControl">
+      <input id="password" class="form-control bg-dark text-info" formControlName="passwordControl">
     </div>
     <br>
     <div *ngIf="formRegister.controls['passwordControl'].invalid && showRequiredMessage" class="alert alert-info">
@@ -34,7 +34,7 @@
       <br>
     </div>
     <button class="btn btn-outline-info" type="submit">
-      Save
+      Register
     </button>
   </form>
 </div>

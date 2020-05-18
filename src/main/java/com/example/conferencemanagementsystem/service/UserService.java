@@ -14,9 +14,9 @@ public class UserService {
     UserRepository userRepository;
 
     public boolean userExists(User user) {
-        Optional<User> found_user = userRepository.findById(user.getUsername());
+        Optional<User> foundUser = userRepository.findById(user.getUsername());
         AtomicBoolean answer = new AtomicBoolean(false);
-        found_user.ifPresentOrElse(u -> {
+        foundUser.ifPresentOrElse(u -> {
             answer.set(true);}, () -> {
             answer.set(false);
         });
@@ -35,7 +35,7 @@ public class UserService {
         if (!this.userExists(user)) {
             return false;
         }
-        User found_user = userRepository.findById(user.getUsername()).get();
-        return found_user.getPassword().equals(user.getPassword());
+        User foundUser = userRepository.findById(user.getUsername()).get();
+        return foundUser.getPassword().equals(user.getPassword());
     }
 }

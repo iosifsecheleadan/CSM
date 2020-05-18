@@ -40,7 +40,7 @@ export class RegistrationComponent implements OnInit {
           this.router.navigateByUrl("/all-conference");
         },
         (error) => {
-          this.errorMessage = "Your registration is invalid.";
+          this.errorMessage = "Your registration is invalid. The username already exists.";
         });
     } else {
       this.showRequiredMessage = true;

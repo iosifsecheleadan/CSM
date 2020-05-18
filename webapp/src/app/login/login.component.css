@@ -1,0 +1,8 @@
+body {
+  background-color: black;
+  height: 100vh;
+}
+
+#password {
+  -webkit-text-security:disc;
+}

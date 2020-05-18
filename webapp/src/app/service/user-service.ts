@@ -16,8 +16,8 @@ export class UserService {
     return this.httpClient.post<User>(this.usersUrl, user);
   }
 
-  loginUser(user: User): Observable<boolean> {
-    return this.httpClient.post<boolean>(this.usersUrl + "/exists", user);
+  loginUser(user: User): Observable<User> {
+    return this.httpClient.post<User>(this.usersUrl + "/exists", user);
   }
 
   rememberUser(user: User) {

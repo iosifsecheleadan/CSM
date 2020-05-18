@@ -20,9 +20,12 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @RequestMapping(value = "/users", method = RequestMethod.GET)
-    ResponseEntity<String> getHello() {
-        return new ResponseEntity<>("HELLO WORLD",HttpStatus.OK);
+    @RequestMapping(value = "/users/exists", method = RequestMethod.POST)
+    ResponseEntity<UserDto> userExists(@RequestBody UserDto userDto) {
+        if (userService.correctUser(new User(userDto))) {
+            return new ResponseEntity<>(userDto,HttpStatus.OK);
+        }
+        return new ResponseEntity<>(userDto,HttpStatus.BAD_REQUEST);
     }
 
     @RequestMapping(value = "/users", method = RequestMethod.POST)
