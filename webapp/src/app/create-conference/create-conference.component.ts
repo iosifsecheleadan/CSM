@@ -124,6 +124,8 @@ export class CreateConferenceComponent implements OnInit {
         console.log("message " + message.message);
         if (message.message !== "okay") {
           this.errorMessage = message.message;
+        } else {
+          this.router.navigateByUrl("/all-conferences");
         }
       }, (error) => {
         console.log("error " + error);

@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.List;
+
 @Controller
 public class ConferenceController {
     @Autowired
@@ -25,5 +27,11 @@ public class ConferenceController {
         } catch (MyException e) {
             return new ResponseEntity<>(new Message(e.getMessage()),HttpStatus.OK);
         }
+    }
+
+    @RequestMapping(value = "/conferences", method = RequestMethod.GET)
+    ResponseEntity<List<Conference>> getConferences() {
+        System.out.println("GETTING CONFERENCES");
+        return new ResponseEntity<>(conferenceService.getConferences(), HttpStatus.OK);
     }
 }

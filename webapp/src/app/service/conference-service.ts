@@ -15,4 +15,9 @@ export class ConferenceService {
     return this.httpClient.post<Message>(this.conferencesUrl, conference);
   }
 
+  getConferences(): Observable<Array<Conference>> {
+    console.log("getting conf");
+    return this.httpClient.get<Array<Conference>>(this.conferencesUrl);
+  }
+
 }

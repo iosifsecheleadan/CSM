@@ -25,6 +25,10 @@ public class ConferenceService {
     @Autowired
     ConferenceValidator conferenceValidator;
 
+    public List<Conference> getConferences() {
+        return conferenceRepository.findAll();
+    }
+
     public void addConference(Conference conference) throws MyException {
         conferenceValidator.validate(conference, userService);
         List<ProgramCommitteeMember> PCMembers=conference.getProgramCommittee();
