@@ -1,9 +1,6 @@
 package com.example.conferencemanagementsystem.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Author {
@@ -11,6 +8,8 @@ public class Author {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String name;
+    @OneToOne
+    private User user;
     private String affiliation;
     private String email;
 

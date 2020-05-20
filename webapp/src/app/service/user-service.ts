@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {User} from "../user/user";
+import {User} from "../model/user";
 
 
 @Injectable()
@@ -24,8 +24,12 @@ export class UserService {
     this.user = user;
   }
 
-  getUser() {
+  getCurrentUser() {
     return this.user;
+  }
+
+  loggedIn() {
+    return this.user != null;
   }
 
 }

@@ -37,7 +37,7 @@ export class RegistrationComponent implements OnInit {
         (user) => {
           console.log("user " + user);
           this.userService.rememberUser(user);
-          this.router.navigateByUrl("/all-conference");
+          this.router.navigateByUrl("/all-conferences");
         },
         (error) => {
           this.errorMessage = "Your registration is invalid. The username already exists.";

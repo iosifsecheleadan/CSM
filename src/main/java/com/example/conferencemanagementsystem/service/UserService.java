@@ -13,6 +13,10 @@ public class UserService {
     @Autowired
     UserRepository userRepository;
 
+    public User getUser(String username) {
+        return userRepository.findById(username).get();
+    }
+
     public boolean userExists(User user) {
         Optional<User> foundUser = userRepository.findById(user.getUsername());
         AtomicBoolean answer = new AtomicBoolean(false);

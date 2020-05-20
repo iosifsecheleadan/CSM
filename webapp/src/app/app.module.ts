@@ -11,6 +11,8 @@ import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
 import { AllConferenceComponent } from './all-conference/all-conference.component';
 import {UserService} from "./service/user-service";
+import { CreateConferenceComponent } from './create-conference/create-conference.component';
+import {ConferenceService} from "./service/conference-service";
 
 
 @NgModule({
@@ -21,6 +23,7 @@ import {UserService} from "./service/user-service";
     RegistrationComponent,
     LoginComponent,
     AllConferenceComponent,
+    CreateConferenceComponent,
 
   ],
   imports: [
@@ -31,7 +34,10 @@ import {UserService} from "./service/user-service";
     ReactiveFormsModule,
   ],
   bootstrap: [AppComponent],
-  providers: [UserService]
+  providers: [
+    UserService,
+    ConferenceService
+  ]
 })
 export class AppModule {
 }

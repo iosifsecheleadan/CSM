@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {User} from "../user/user";
+import {User} from "../model/user";
 import {UserService} from "../service/user-service";
 import {Router} from "@angular/router";
 
@@ -14,7 +14,7 @@ export class AllConferenceComponent implements OnInit {
   user: User;
 
   constructor(private userService: UserService, private router: Router) {
-    this.user = this.userService.getUser();
+    this.user = this.userService.getCurrentUser();
   }
 
   ngOnInit(): void {

@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
       }).subscribe(
         (user) => {
           this.userService.rememberUser(user);
-          this.router.navigateByUrl("/all-conference");
+          this.router.navigateByUrl("/all-conferences");
         },
         (error) => {
           this.errorMessage = "Your login is invalid. Your password or username is incorrect.";
