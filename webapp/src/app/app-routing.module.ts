@@ -5,6 +5,7 @@ import {LoginComponent} from "./login/login.component";
 import {RegistrationComponent} from "./registration/registration.component";
 import {AllConferenceComponent} from "./all-conference/all-conference.component";
 import {CreateConferenceComponent} from "./create-conference/create-conference.component";
+import {ConferenceOverviewComponent} from "./conference-overview/conference-overview.component";
 
 
 const routes: Routes = [
@@ -12,7 +13,8 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegistrationComponent},
   {path: 'all-conferences', component: AllConferenceComponent},
-  {path: 'create-conference', component: CreateConferenceComponent}
+  {path: 'create-conference', component: CreateConferenceComponent},
+  {path: 'conference-overview/:id', component: ConferenceOverviewComponent},
 ];
 
 @NgModule({

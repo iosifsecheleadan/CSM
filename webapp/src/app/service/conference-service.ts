@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Conference} from "../model/conference";
 import {Message} from "../model/message";
+import {map} from "rxjs/operators";
 
 @Injectable()
 export class ConferenceService {
@@ -18,6 +19,11 @@ export class ConferenceService {
   getConferences(): Observable<Array<Conference>> {
     console.log("getting conf");
     return this.httpClient.get<Array<Conference>>(this.conferencesUrl);
+  }
+
+  getConference(id: number): Observable<Conference> {
+    return this.getConferences().pipe(
+      map(conferences => conferences.find(conference => conference.id === id)));
   }
 
 }

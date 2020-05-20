@@ -13,6 +13,8 @@ import { AllConferenceComponent } from './all-conference/all-conference.componen
 import {UserService} from "./service/user-service";
 import { CreateConferenceComponent } from './create-conference/create-conference.component';
 import {ConferenceService} from "./service/conference-service";
+import { ConferenceOverviewComponent } from './conference-overview/conference-overview.component';
+import { ConferenceMenuComponent } from './conference-menu/conference-menu.component';
 
 
 @NgModule({
@@ -24,6 +26,8 @@ import {ConferenceService} from "./service/conference-service";
     LoginComponent,
     AllConferenceComponent,
     CreateConferenceComponent,
+    ConferenceOverviewComponent,
+    ConferenceMenuComponent,
 
   ],
   imports: [

@@ -25,7 +25,7 @@ export class AllConferenceComponent implements OnInit {
   }
 
   visitPage(id): void {
-    alert(id);
+    this.router.navigate(["/conference-overview", id]);
   }
 
   getConferences(): void {
