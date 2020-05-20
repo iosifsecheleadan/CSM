@@ -32,4 +32,8 @@ export class UserService {
     return this.user != null;
   }
 
+  forgetUser() {
+    this.user = null;
+  }
+
 }
