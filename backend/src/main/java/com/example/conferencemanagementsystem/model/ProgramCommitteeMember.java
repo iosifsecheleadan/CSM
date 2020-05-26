@@ -23,6 +23,22 @@ public class ProgramCommitteeMember {
     private boolean isCoChair;
     private boolean hasRegistered;
 
+    public boolean isCoChair() {
+        return isCoChair;
+    }
+
+    public void setCoChair(boolean coChair) {
+        isCoChair = coChair;
+    }
+
+    public boolean isHasRegistered() {
+        return hasRegistered;
+    }
+
+    public void setHasRegistered(boolean hasRegistered) {
+        this.hasRegistered = hasRegistered;
+    }
+
     public String getAffiliation() {
         return affiliation;
     }

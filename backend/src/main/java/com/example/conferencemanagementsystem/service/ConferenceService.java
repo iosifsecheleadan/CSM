@@ -44,4 +44,8 @@ public class ConferenceService {
         conference.setSteeringCommittee(SCMembers);
         conferenceRepository.save(conference);
     }
+
+    public void registerPcMember(ProgramCommitteeMember programCommitteeMember) throws MyException {
+        programCommitteeMemberService.updatePCMember(programCommitteeMember);
+    }
 }

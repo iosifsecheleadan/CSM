@@ -15,6 +15,7 @@ import { CreateConferenceComponent } from './create-conference/create-conference
 import {ConferenceService} from "./service/conference-service";
 import { ConferenceOverviewComponent } from './conference-overview/conference-overview.component';
 import { ConferenceMenuComponent } from './conference-menu/conference-menu.component';
+import { PcmemberRegistrationConferenceComponent } from './pcmember-registration-conference/pcmember-registration-conference.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { ConferenceMenuComponent } from './conference-menu/conference-menu.compo
     CreateConferenceComponent,
     ConferenceOverviewComponent,
     ConferenceMenuComponent,
+    PcmemberRegistrationConferenceComponent,
 
   ],
   imports: [

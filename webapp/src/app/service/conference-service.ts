@@ -4,6 +4,7 @@ import {Observable} from "rxjs";
 import {Conference} from "../model/conference";
 import {Message} from "../model/message";
 import {map} from "rxjs/operators";
+import {ProgramCommitteeMember} from "../model/program-committee-member";
 
 @Injectable()
 export class ConferenceService {
@@ -26,4 +27,7 @@ export class ConferenceService {
       map(conferences => conferences.find(conference => conference.id === id)));
   }
 
+  registerPCMember(pcMember: ProgramCommitteeMember): Observable<Message> {
+    return this.httpClient.post<Message>(this.conferencesUrl + "/register", pcMember);
+  }
 }

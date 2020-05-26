@@ -3,6 +3,7 @@ package com.example.conferencemanagementsystem.controller;
 import com.example.conferencemanagementsystem.exception.MyException;
 import com.example.conferencemanagementsystem.model.Conference;
 import com.example.conferencemanagementsystem.model.Message;
+import com.example.conferencemanagementsystem.model.ProgramCommitteeMember;
 import com.example.conferencemanagementsystem.service.ConferenceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -33,5 +34,15 @@ public class ConferenceController {
     ResponseEntity<List<Conference>> getConferences() {
         System.out.println("GETTING CONFERENCES");
         return new ResponseEntity<>(conferenceService.getConferences(), HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/conferences/register", method = RequestMethod.POST)
+    ResponseEntity<Message> registerPcMember(@RequestBody ProgramCommitteeMember programCommitteeMember) {
+        try {
+            conferenceService.registerPcMember(programCommitteeMember);
+            return new ResponseEntity<>(new Message("okay"), HttpStatus.OK);
+        } catch (MyException e) {
+            return new ResponseEntity<>(new Message(e.getMessage()),HttpStatus.OK);
+        }
     }
 }
