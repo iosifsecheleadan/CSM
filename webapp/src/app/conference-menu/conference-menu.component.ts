@@ -3,7 +3,6 @@ import {UserService} from "../service/user-service";
 import {Router} from "@angular/router";
 import {User} from "../model/user";
 import {Conference} from "../model/conference";
-import {ProgramCommitteeMember} from "../model/program-committee-member";
 
 @Component({
   selector: 'app-conference-menu',
@@ -15,25 +14,11 @@ export class ConferenceMenuComponent implements OnInit {
   user: User;
   @Input()
   conference: Conference;
-  showRegisterPCM: boolean;
 
-  constructor(private userService: UserService, private router: Router) {
-    this.user = this.userService.getCurrentUser();
-    this.showRegisterPCM = false;
-
-    /**/
-  }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
-    console.log(this.conference.name);
-    this.conference.programCommittee.forEach(member => {
-      if (member.user.username === this.user.username && member.hasRegistered === false) {
-        this.showRegisterPCM = true;
-      }
-    });
-    if (this.conference === null) {
-      alert("null");
-    }
+    this.user = this.userService.getCurrentUser();
   }
 
 }

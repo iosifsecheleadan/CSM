@@ -8,6 +8,6 @@
   <a class="nav-item nav-link text-info" routerLink="/conference-overview/{{conference.id}}" routerLinkActive="active">Overview</a>
   <a class="nav-item nav-link text-info" routerLink="#" routerLinkActive="active">Submit a paper</a>
   <a class="nav-item nav-link text-info" routerLink="#" routerLinkActive="active">Participate</a>
-  <a *ngIf="showRegisterPCM" class="nav-item nav-link text-info" routerLink="/pcmember-registration-conference" routerLinkActive="active">Register as Program Committee Member</a>
+  <a class="nav-item nav-link text-info" routerLink="/pcmember-registration-conference/{{conference.id}}" routerLinkActive="active">Register as Program Committee Member</a>
 </nav>
 </div>
