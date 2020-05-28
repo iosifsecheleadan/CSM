@@ -17,8 +17,8 @@ const routes: Routes = [
   {path: 'all-conferences', component: AllConferenceComponent},
   {path: 'create-conference', component: CreateConferenceComponent},
   {path: 'conference-overview/:id', component: ConferenceOverviewComponent},
-  {path: 'pcmember-registration-conference', component: PcmemberRegistrationConferenceComponent},
-  {path: 'submit-paper/:id', component: SubmitPaperComponent}
+  {path: 'submit-paper/:id', component: SubmitPaperComponent},
+  {path: 'pcmember-registration-conference/:id', component: PcmemberRegistrationConferenceComponent}
 ];
 
 @NgModule({

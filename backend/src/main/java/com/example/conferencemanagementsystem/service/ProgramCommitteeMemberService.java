@@ -16,8 +16,8 @@ public class ProgramCommitteeMemberService {
     public void addPCMember(ProgramCommitteeMember member) {
         programCommitteeMemberRepository.save(member);
     }
-    public void updatePCMember(ProgramCommitteeMember member) {
-        Optional<ProgramCommitteeMember> optional = programCommitteeMemberRepository.findByUsername(member.getUser().getUsername());
+    public void updatePCMember(ProgramCommitteeMember member, int id) {
+        Optional<ProgramCommitteeMember> optional = programCommitteeMemberRepository.findByUsername(member.getUser().getUsername(), id);
         optional.ifPresent(m -> {
             m.setUser(member.getUser());
             m.setName(member.getName());

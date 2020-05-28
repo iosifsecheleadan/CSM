@@ -28,8 +28,9 @@ export class ConferenceService {
       map(conferences => conferences.find(conference => conference.id === id)));
   }
 
-  registerPCMember(pcMember: ProgramCommitteeMember): Observable<Message> {
-    return this.httpClient.post<Message>(this.conferencesUrl + "/register", pcMember);
+  registerPCMember(pcMember: ProgramCommitteeMember, id: number): Observable<Message> {
+    const url = `${this.conferencesUrl}/register/${id}`;
+    return this.httpClient.post<Message>(url, pcMember);
   }
 
   addPaper(conferenceId: number, paper: Paper): Observable<Message> {
