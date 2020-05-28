@@ -1,9 +1,7 @@
 package com.example.conferencemanagementsystem.model.validator;
 
 import com.example.conferencemanagementsystem.exception.MyException;
-import com.example.conferencemanagementsystem.model.Conference;
-import com.example.conferencemanagementsystem.model.ProgramCommitteeMember;
-import com.example.conferencemanagementsystem.model.User;
+import com.example.conferencemanagementsystem.model.*;
 import com.example.conferencemanagementsystem.service.UserService;
 import org.springframework.stereotype.Component;
 
@@ -12,7 +10,7 @@ import java.util.List;
 
 @Component
 public class ConferenceValidator {
-    public void validate(Conference conference, UserService userService) throws MyException {
+    public void validateConference(Conference conference, UserService userService) throws MyException {
         String errorMessage="";
         String name=conference.getName();
         if (name==null || name.length()==0) {
@@ -72,6 +70,23 @@ public class ConferenceValidator {
         for (User user: steeringCommittee) {
             if (!userService.userExists(user)) {
                 errorMessage+="User "+user.getUsername()+" does not exist. \n";
+            }
+        }
+        if (errorMessage.length()>0) {
+            throw new MyException(errorMessage);
+        }
+    }
+
+    public void validatePaper(Paper paper, UserService userService) throws MyException {
+        System.out.println(paper);
+        String errorMessage = "";
+        if (paper.getTitle()==null || paper.getTitle().length()==0) {
+            errorMessage+="The paper must have a title.\n";
+        }
+        List<Author> authors = paper.getAuthors();
+        for(Author author: authors) {
+            if (!userService.userExists(author.getUser())) {
+                errorMessage+="User "+author.getUser().getUsername()+" does not exist. \n";
             }
         }
         if (errorMessage.length()>0) {

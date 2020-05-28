@@ -91,11 +91,11 @@ export class SubmitPaperComponent implements OnInit {
         authors: authors
       }).subscribe(
         (message) => {
-          console.log("message " + message.message);
+          console.log("message: " + message.message);
           if (message.message !== "okay") {
             this.errorMessage = message.message;
           } else {
-            console.log("ok");
+            this.router.navigate(["/conference-overview", this.conference.id]);
           }
         }, (error) => {
           console.log("error " + error);

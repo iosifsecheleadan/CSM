@@ -36,8 +36,11 @@ public class Conference {
     private List<User> steeringCommittee;
     @OneToMany
     private List<Paper> papers;
+
+    public void addPaper(Paper paper) {
+        this.papers.add(paper);
+    }
     //TODO: SECTIONS FIELD (ON CLIENT SIDE TOO)
-    //TODO: PAPERS FIELD (ON CLIENT SIDE TOO)
     //TODO: PARTICIPANTS FIELD? (ON CLIENT SIDE TOO)
 
 }

@@ -1,13 +1,12 @@
 package com.example.conferencemanagementsystem.service;
 
 import com.example.conferencemanagementsystem.exception.MyException;
-import com.example.conferencemanagementsystem.model.Conference;
-import com.example.conferencemanagementsystem.model.ProgramCommitteeMember;
-import com.example.conferencemanagementsystem.model.User;
+import com.example.conferencemanagementsystem.model.*;
 import com.example.conferencemanagementsystem.model.validator.ConferenceValidator;
 import com.example.conferencemanagementsystem.repository.ConferenceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -25,12 +24,18 @@ public class ConferenceService {
     @Autowired
     ConferenceValidator conferenceValidator;
 
+    @Autowired
+    AuthorService authorService;
+
+    @Autowired
+    PaperService paperService;
+
     public List<Conference> getConferences() {
         return conferenceRepository.findAll();
     }
 
     public void addConference(Conference conference) throws MyException {
-        conferenceValidator.validate(conference, userService);
+        conferenceValidator.validateConference(conference, userService);
         List<ProgramCommitteeMember> PCMembers=conference.getProgramCommittee();
         for (ProgramCommitteeMember member: PCMembers) {
             member.setUser(userService.getUser(member.getUser().getUsername()));
@@ -47,5 +52,16 @@ public class ConferenceService {
 
     public void registerPcMember(ProgramCommitteeMember programCommitteeMember) throws MyException {
         programCommitteeMemberService.updatePCMember(programCommitteeMember);
+    }
+
+    @Transactional
+    public void addPaper(int id, Paper paper) throws MyException {
+        conferenceValidator.validatePaper(paper, userService);
+        for (Author author: paper.getAuthors()) {
+            authorService.addAuthor(author);
+        }
+        paperService.addPaper(paper);
+        Conference conference = conferenceRepository.getOne(id);
+        conference.addPaper(paper);
     }
 }
