@@ -20,12 +20,9 @@ export class ConferenceMenuComponent implements OnInit {
   constructor(private userService: UserService, private router: Router) {
     this.user = this.userService.getCurrentUser();
     this.showRegisterPCM = false;
-
-    /**/
   }
 
   ngOnInit(): void {
-    console.log(this.conference.name);
     this.conference.programCommittee.forEach(member => {
       if (member.user.username === this.user.username && member.hasRegistered === false) {
         this.showRegisterPCM = true;
