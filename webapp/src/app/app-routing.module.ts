@@ -7,6 +7,7 @@ import {AllConferenceComponent} from "./all-conference/all-conference.component"
 import {CreateConferenceComponent} from "./create-conference/create-conference.component";
 import {ConferenceOverviewComponent} from "./conference-overview/conference-overview.component";
 import {PcmemberRegistrationConferenceComponent} from "./pcmember-registration-conference/pcmember-registration-conference.component";
+import {SubmitPaperComponent} from "./submit-paper/submit-paper.component";
 
 
 const routes: Routes = [
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path: 'all-conferences', component: AllConferenceComponent},
   {path: 'create-conference', component: CreateConferenceComponent},
   {path: 'conference-overview/:id', component: ConferenceOverviewComponent},
-  {path: 'pcmember-registration-conference', component: PcmemberRegistrationConferenceComponent}
+  {path: 'pcmember-registration-conference', component: PcmemberRegistrationConferenceComponent},
+  {path: 'submit-paper/:id', component: SubmitPaperComponent}
 ];
 
 @NgModule({

@@ -16,24 +16,28 @@ export class ConferenceMenuComponent implements OnInit {
   @Input()
   conference: Conference;
   showRegisterPCM: boolean;
+  showSubmitPaper: boolean;
 
   constructor(private userService: UserService, private router: Router) {
     this.user = this.userService.getCurrentUser();
     this.showRegisterPCM = false;
-
-    /**/
+    this.showSubmitPaper = true;
   }
 
   ngOnInit(): void {
-    console.log(this.conference.name);
     this.conference.programCommittee.forEach(member => {
       if (member.user.username === this.user.username && member.hasRegistered === false) {
         this.showRegisterPCM = true;
       }
     });
-    if (this.conference === null) {
-      alert("null");
-    }
+
+    this.conference.papers.forEach(paper => {
+      paper.authors.forEach(author => {
+        if (author.user.username === this.user.username) {
+          this.showSubmitPaper = false;
+        }
+      });
+    });
   }
 
 }

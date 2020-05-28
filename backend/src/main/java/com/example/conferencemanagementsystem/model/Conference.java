@@ -34,6 +34,8 @@ public class Conference {
     private List<ProgramCommitteeMember> programCommittee;
     @ManyToMany
     private List<User> steeringCommittee;
+    @OneToMany
+    private List<Paper> papers;
     //TODO: SECTIONS FIELD (ON CLIENT SIDE TOO)
     //TODO: PAPERS FIELD (ON CLIENT SIDE TOO)
     //TODO: PARTICIPANTS FIELD? (ON CLIENT SIDE TOO)

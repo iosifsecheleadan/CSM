@@ -16,6 +16,7 @@ import {ConferenceService} from "./service/conference-service";
 import { ConferenceOverviewComponent } from './conference-overview/conference-overview.component';
 import { ConferenceMenuComponent } from './conference-menu/conference-menu.component';
 import { PcmemberRegistrationConferenceComponent } from './pcmember-registration-conference/pcmember-registration-conference.component';
+import { SubmitPaperComponent } from './submit-paper/submit-paper.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { PcmemberRegistrationConferenceComponent } from './pcmember-registration
     ConferenceOverviewComponent,
     ConferenceMenuComponent,
     PcmemberRegistrationConferenceComponent,
+    SubmitPaperComponent,
 
   ],
   imports: [

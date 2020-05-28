@@ -48,39 +48,45 @@ export class CreateConferenceComponent implements OnInit {
     if (PCMembers !== null) {
       const pCommittee1 = PCMembers.split(/\r?\n/);
       for (const member of pCommittee1) {
-        programCommittee.push({
-          affiliation: "",
-          email: "",
-          hasRegistered: false,
-          isCoChair: false,
-          name: "",
-          user: {username: member, password: ""},
-          webPage: "", ...{}
-        });
+        if (member.length > 0) {
+          programCommittee.push({
+            affiliation: "",
+            email: "",
+            hasRegistered: false,
+            isCoChair: false,
+            name: "",
+            user: {username: member, password: ""},
+            webPage: "", ...{}
+          });
+        }
       }
     }
     if (coChairs !== null) {
       const pCommittee2 = coChairs.split(/\r?\n/);
       for (const member of pCommittee2) {
-        programCommittee.push({
-          affiliation: "",
-          email: "",
-          hasRegistered: false,
-          isCoChair: true,
-          name: "",
-          user: {username: member, password: ""},
-          webPage: "", ...{}
-        });
+        if (member.length > 0) {
+          programCommittee.push({
+            affiliation: "",
+            email: "",
+            hasRegistered: false,
+            isCoChair: true,
+            name: "",
+            user: {username: member, password: ""},
+            webPage: "", ...{}
+          });
+        }
       }
     }
     const steeringCommitteeFinal = new Array<User>();
     if (steeringCommittee !== null) {
       const sCommittee = steeringCommittee.split(/\r?\n/);
       for (const member of sCommittee) {
-        steeringCommitteeFinal.push({
-          username: member,
-          password: "", ...{}
-        });
+        if (member.length > 0) {
+          steeringCommitteeFinal.push({
+            username: member,
+            password: "", ...{}
+          });
+        }
       }
     }
     steeringCommitteeFinal.push({
@@ -100,7 +106,8 @@ export class CreateConferenceComponent implements OnInit {
       steeringCommittee: steeringCommitteeFinal,
       name: name,
       callForPapers: callForPapers,
-      numberReviewers: numberReviewers
+      numberReviewers: numberReviewers,
+      papers: []
     };
   }
 

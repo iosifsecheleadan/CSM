@@ -1,36 +1,29 @@
 package com.example.conferencemanagementsystem.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.util.List;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
 public class Paper {
+    @Id
+    @GeneratedValue
     private int id;
-    private List<String> keywords;
-    private List<String> topics;
-
-    public Paper() {
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public List<String> getKeywords() {
-        return keywords;
-    }
-
-    public void setKeywords(List<String> keywords) {
-        this.keywords = keywords;
-    }
-
-    public List<String> getTopics() {
-        return topics;
-    }
-
-    public void setTopics(List<String> topics) {
-        this.topics = topics;
-    }
+    private String title;
+    private String keywords;
+    private String topics;
+    private String abstractPaper;
+    private String fullPaper;
+    private String presentation;
+    @OneToMany
+    private List<Author> authors;
 }
