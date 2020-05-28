@@ -43,7 +43,7 @@ export class PcmemberRegistrationConferenceComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.conference)
+    console.log(this.conference);
     const name = this.formRegister.value["name"];
     const affiliation = this.formRegister.value["affiliation"];
     const email = this.formRegister.value["email"];
@@ -54,14 +54,14 @@ export class PcmemberRegistrationConferenceComponent implements OnInit {
 
     this.conferenceService.registerPCMember(pcMember, this.conference.id).subscribe(
       (message) => {
-        console.log("message " + message.message)
+        console.log("message " + message.message);
         if (message.message !== "okay") {
           this.errorMessage = message.message;
         } else {
-          this.router.navigateByUrl("/all-conferences")
+          this.router.navigate(["/conference-overview", this.conference.id]);
         }
       }, (error) => {
-        console.log("error " + error)
+        console.log("error " + error);
       }
     );
   }
