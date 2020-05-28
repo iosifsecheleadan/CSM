@@ -1,5 +1,8 @@
 <body>
-<app-conference-menu [conference]="conference"></app-conference-menu>
+<div *ngIf = "conference">
+  <app-conference-menu [conference]="conference"></app-conference-menu>
+</div>
+
 <div class="container">
 <p class="text-cyan">conference-overview works!</p>
 </div>
