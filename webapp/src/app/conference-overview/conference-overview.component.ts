@@ -16,9 +16,6 @@ export class ConferenceOverviewComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private router: Router,
               private conferenceService: ConferenceService) {
-  }
-
-  ngOnInit(): void {
     this.route.params.pipe(
       switchMap((params: Params) => this.conferenceService.getConference(+params['id'])))
       .subscribe(conf => {
@@ -30,6 +27,10 @@ export class ConferenceOverviewComponent implements OnInit {
         conf.reviewingDeadline = new Date(conf.reviewingDeadline);
         this.conference = conf;
       });
+  }
+
+  ngOnInit(): void {
+
   }
 
 }
