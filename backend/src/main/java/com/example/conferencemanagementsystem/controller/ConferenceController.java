@@ -9,9 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -36,10 +34,10 @@ public class ConferenceController {
         return new ResponseEntity<>(conferenceService.getConferences(), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/conferences/register", method = RequestMethod.POST)
-    ResponseEntity<Message> registerPcMember(@RequestBody ProgramCommitteeMember programCommitteeMember) {
+    @RequestMapping(value = "/conferences/register/{id}", method = RequestMethod.POST)
+    ResponseEntity<Message> registerPcMember(@PathVariable int id, @RequestBody ProgramCommitteeMember programCommitteeMember) {
         try {
-            conferenceService.registerPcMember(programCommitteeMember);
+            conferenceService.registerPcMember(programCommitteeMember, id);
             return new ResponseEntity<>(new Message("okay"), HttpStatus.OK);
         } catch (MyException e) {
             return new ResponseEntity<>(new Message(e.getMessage()),HttpStatus.OK);

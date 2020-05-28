@@ -1,10 +1,11 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ProgramCommitteeMember} from "../model/program-committee-member";
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute, Params, Router} from "@angular/router";
 import {ConferenceService} from "../service/conference-service";
 import {Conference} from "../model/conference";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {UserService} from "../service/user-service";
+import {switchMap} from "rxjs/operators";
 
 @Component({
   selector: 'app-pcmember-registration-conference',
@@ -13,6 +14,7 @@ import {UserService} from "../service/user-service";
 })
 export class PcmemberRegistrationConferenceComponent implements OnInit {
 
+  conference: Conference;
   formRegister: FormGroup;
   errorMessage: string;
 
@@ -27,9 +29,21 @@ export class PcmemberRegistrationConferenceComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.route.params.pipe(
+      switchMap((params: Params) => this.conferenceService.getConference(+params['id'])))
+      .subscribe(conf => {
+        conf.firstDay = new Date(conf.firstDay);
+        conf.lastDay = new Date(conf.lastDay);
+        conf.abstractDeadline = new Date(conf.abstractDeadline);
+        conf.fullPaperDeadline = new Date(conf.fullPaperDeadline);
+        conf.biddingDeadline = new Date(conf.biddingDeadline);
+        conf.reviewingDeadline = new Date(conf.reviewingDeadline);
+        this.conference = conf;
+      });
   }
 
   onSubmit() {
+    console.log(this.conference)
     const name = this.formRegister.value["name"];
     const affiliation = this.formRegister.value["affiliation"];
     const email = this.formRegister.value["email"];
@@ -38,7 +52,7 @@ export class PcmemberRegistrationConferenceComponent implements OnInit {
     const pcMember = {user: user, name: name, affiliation: affiliation, email: email, webPage: webPage, isCoChair: false, hasRegistered: true};
     console.log(pcMember);
 
-    this.conferenceService.registerPCMember(pcMember).subscribe(
+    this.conferenceService.registerPCMember(pcMember, this.conference.id).subscribe(
       (message) => {
         console.log("message " + message.message)
         if (message.message !== "okay") {

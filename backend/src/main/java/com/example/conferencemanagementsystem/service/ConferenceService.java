@@ -45,7 +45,7 @@ public class ConferenceService {
         conferenceRepository.save(conference);
     }
 
-    public void registerPcMember(ProgramCommitteeMember programCommitteeMember) throws MyException {
-        programCommitteeMemberService.updatePCMember(programCommitteeMember);
+    public void registerPcMember(ProgramCommitteeMember programCommitteeMember, int id) throws MyException {
+        programCommitteeMemberService.updatePCMember(programCommitteeMember, id);
     }
 }
