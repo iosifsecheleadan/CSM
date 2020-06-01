@@ -48,7 +48,7 @@ public class ConferenceController {
         }
     }
 
-    @RequestMapping(value = "/papers/{id}/addPaper", method = RequestMethod.POST)
+    @RequestMapping(value = "/conferences/{id}/addPaper", method = RequestMethod.POST)
     ResponseEntity<Message> addPaper(@PathVariable int id, @RequestBody Paper paper) {
         try {
             conferenceService.addPaper(id, paper);
