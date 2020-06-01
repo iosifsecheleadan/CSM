@@ -35,7 +35,6 @@ public class ConferenceController {
 
     @RequestMapping(value = "/conferences", method = RequestMethod.GET)
     ResponseEntity<List<Conference>> getConferences() {
-        System.out.println("GETTING CONFERENCES");
         return new ResponseEntity<>(conferenceService.getConferences(), HttpStatus.OK);
     }
 
