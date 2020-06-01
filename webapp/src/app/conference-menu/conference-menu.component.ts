@@ -17,24 +17,55 @@ export class ConferenceMenuComponent implements OnInit {
   conference: Conference;
   showRegisterPCM: boolean;
   showSubmitPaper: boolean;
+  showUploadAbstract: boolean;
+  showUploadFull: boolean;
+  showUploadPresentation: boolean;
 
   constructor(private userService: UserService, private router: Router) {
     this.user = this.userService.getCurrentUser();
     this.showRegisterPCM = false;
     this.showSubmitPaper = true;
+    this.showUploadAbstract = false;
+    this.showUploadFull = false;
+    this.showUploadPresentation = false;
   }
 
   ngOnInit(): void {
+    // showRegisterPCM
     this.conference.programCommittee.forEach(member => {
       if (member.user.username === this.user.username && member.hasRegistered === false) {
         this.showRegisterPCM = true;
       }
     });
-
+    // showSubmitPaper
     this.conference.papers.forEach(paper => {
       paper.authors.forEach(author => {
         if (author.user.username === this.user.username) {
           this.showSubmitPaper = false;
+        }
+      });
+    });
+    // showUploadAbstract
+    this.conference.papers.forEach(paper => {
+      paper.authors.forEach(author => {
+        if (author.user.username === this.user.username) {
+          this.showUploadAbstract = true;
+        }
+      });
+    });
+    // showUploadFull
+    this.conference.papers.forEach(paper => {
+      paper.authors.forEach(author => {
+        if (author.user.username === this.user.username) {
+          this.showUploadFull = true;
+        }
+      });
+    });
+    // showUploadPresentation
+    this.conference.papers.forEach(paper => {
+      paper.authors.forEach(author => {
+        if (author.user.username === this.user.username) {
+          this.showUploadPresentation = true;
         }
       });
     });

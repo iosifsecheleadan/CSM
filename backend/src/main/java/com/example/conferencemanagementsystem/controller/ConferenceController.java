@@ -49,7 +49,7 @@ public class ConferenceController {
         }
     }
 
-    @RequestMapping(value = "/conferences/{id}/addPaper", method = RequestMethod.POST)
+    @RequestMapping(value = "/papers/{id}/addPaper", method = RequestMethod.POST)
     ResponseEntity<Message> addPaper(@PathVariable int id, @RequestBody Paper paper) {
         try {
             conferenceService.addPaper(id, paper);
@@ -58,5 +58,4 @@ public class ConferenceController {
             return new ResponseEntity<>(new Message(e.getMessage()),HttpStatus.OK);
         }
     }
-
 }

@@ -17,6 +17,10 @@ import { ConferenceOverviewComponent } from './conference-overview/conference-ov
 import { ConferenceMenuComponent } from './conference-menu/conference-menu.component';
 import { PcmemberRegistrationConferenceComponent } from './pcmember-registration-conference/pcmember-registration-conference.component';
 import { SubmitPaperComponent } from './submit-paper/submit-paper.component';
+import { UploadAbstractComponent } from './upload-abstract/upload-abstract.component';
+import { UploadFullComponent } from './upload-full/upload-full.component';
+import { UploadPresentationComponent } from './upload-presentation/upload-presentation.component';
+import {PaperService} from "./service/paper-service";
 
 
 @NgModule({
@@ -32,6 +36,9 @@ import { SubmitPaperComponent } from './submit-paper/submit-paper.component';
     ConferenceMenuComponent,
     PcmemberRegistrationConferenceComponent,
     SubmitPaperComponent,
+    UploadAbstractComponent,
+    UploadFullComponent,
+    UploadPresentationComponent,
 
   ],
   imports: [
@@ -44,7 +51,8 @@ import { SubmitPaperComponent } from './submit-paper/submit-paper.component';
   bootstrap: [AppComponent],
   providers: [
     UserService,
-    ConferenceService
+    ConferenceService,
+    PaperService
   ]
 })
 export class AppModule {

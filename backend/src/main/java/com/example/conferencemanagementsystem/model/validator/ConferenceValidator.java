@@ -77,7 +77,7 @@ public class ConferenceValidator {
         }
     }
 
-    public void validatePaper(Paper paper, UserService userService) throws MyException {
+    public void validatePaper(Paper paper, UserService userService, List<Author> existingAuthors) throws MyException {
         System.out.println(paper);
         String errorMessage = "";
         if (paper.getTitle()==null || paper.getTitle().length()==0) {
@@ -87,6 +87,11 @@ public class ConferenceValidator {
         for(Author author: authors) {
             if (!userService.userExists(author.getUser())) {
                 errorMessage+="User "+author.getUser().getUsername()+" does not exist. \n";
+            }
+            for (Author existingAuthor: existingAuthors) {
+                if (author.getUser().equals(existingAuthor.getUser())) {
+                    errorMessage+="User "+author.getUser().getUsername()+" already is an author at this conference. \n";
+                }
             }
         }
         if (errorMessage.length()>0) {

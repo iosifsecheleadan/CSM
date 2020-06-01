@@ -56,7 +56,7 @@ public class ConferenceService {
 
     @Transactional
     public void addPaper(int id, Paper paper) throws MyException {
-        conferenceValidator.validatePaper(paper, userService);
+        conferenceValidator.validatePaper(paper, userService, authorService.getAll());
         for (Author author: paper.getAuthors()) {
             authorService.addAuthor(author);
         }

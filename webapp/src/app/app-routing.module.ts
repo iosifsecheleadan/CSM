@@ -8,6 +8,9 @@ import {CreateConferenceComponent} from "./create-conference/create-conference.c
 import {ConferenceOverviewComponent} from "./conference-overview/conference-overview.component";
 import {PcmemberRegistrationConferenceComponent} from "./pcmember-registration-conference/pcmember-registration-conference.component";
 import {SubmitPaperComponent} from "./submit-paper/submit-paper.component";
+import {UploadAbstractComponent} from "./upload-abstract/upload-abstract.component";
+import {UploadFullComponent} from "./upload-full/upload-full.component";
+import {UploadPresentationComponent} from "./upload-presentation/upload-presentation.component";
 
 
 const routes: Routes = [
@@ -18,7 +21,10 @@ const routes: Routes = [
   {path: 'create-conference', component: CreateConferenceComponent},
   {path: 'conference-overview/:id', component: ConferenceOverviewComponent},
   {path: 'submit-paper/:id', component: SubmitPaperComponent},
-  {path: 'pcmember-registration-conference/:id', component: PcmemberRegistrationConferenceComponent}
+  {path: 'pcmember-registration-conference/:id', component: PcmemberRegistrationConferenceComponent},
+  {path: 'upload-abstract/:id', component: UploadAbstractComponent},
+  {path: 'upload-full/:id', component: UploadFullComponent},
+  {path: 'upload-presentation/:id', component: UploadPresentationComponent}
 ];
 
 @NgModule({
