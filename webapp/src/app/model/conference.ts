@@ -18,4 +18,5 @@ export class Conference {
   programCommittee: Array<ProgramCommitteeMember>;
   steeringCommittee: Array<User>;
   papers: Array<Paper>;
+  participants: Array<User>;
 }

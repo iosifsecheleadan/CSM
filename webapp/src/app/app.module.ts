@@ -21,6 +21,7 @@ import { UploadAbstractComponent } from './upload-abstract/upload-abstract.compo
 import { UploadFullComponent } from './upload-full/upload-full.component';
 import { UploadPresentationComponent } from './upload-presentation/upload-presentation.component';
 import {PaperService} from "./service/paper-service";
+import { ParticipateComponent } from './participate/participate.component';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import {PaperService} from "./service/paper-service";
     UploadAbstractComponent,
     UploadFullComponent,
     UploadPresentationComponent,
+    ParticipateComponent,
 
   ],
   imports: [

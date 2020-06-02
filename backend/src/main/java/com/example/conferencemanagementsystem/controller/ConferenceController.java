@@ -1,10 +1,7 @@
 package com.example.conferencemanagementsystem.controller;
 
 import com.example.conferencemanagementsystem.exception.MyException;
-import com.example.conferencemanagementsystem.model.Conference;
-import com.example.conferencemanagementsystem.model.Message;
-import com.example.conferencemanagementsystem.model.Paper;
-import com.example.conferencemanagementsystem.model.ProgramCommitteeMember;
+import com.example.conferencemanagementsystem.model.*;
 import com.example.conferencemanagementsystem.service.ConferenceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -52,6 +49,16 @@ public class ConferenceController {
     ResponseEntity<Message> addPaper(@PathVariable int id, @RequestBody Paper paper) {
         try {
             conferenceService.addPaper(id, paper);
+            return new ResponseEntity<>(new Message("okay"), HttpStatus.OK);
+        } catch (MyException e) {
+            return new ResponseEntity<>(new Message(e.getMessage()),HttpStatus.OK);
+        }
+    }
+
+    @RequestMapping(value = "/conferences/{id}/addParticipant", method = RequestMethod.POST)
+    ResponseEntity<Message> addParticipant(@PathVariable int id, @RequestBody User user) {
+        try {
+            conferenceService.addParticipant(id, user);
             return new ResponseEntity<>(new Message("okay"), HttpStatus.OK);
         } catch (MyException e) {
             return new ResponseEntity<>(new Message(e.getMessage()),HttpStatus.OK);

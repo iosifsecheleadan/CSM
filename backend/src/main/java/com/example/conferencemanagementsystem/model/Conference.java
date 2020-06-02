@@ -36,6 +36,13 @@ public class Conference {
     private List<User> steeringCommittee;
     @OneToMany
     private List<Paper> papers;
+    @OneToMany
+    private List<User> participants;
+
+    public void addParticipant(User user){
+        if (!participants.contains(user))
+            this.participants.add(user);
+    }
 
     public void addPaper(Paper paper) {
         this.papers.add(paper);
