@@ -6,6 +6,7 @@ import {Message} from "../model/message";
 import {map} from "rxjs/operators";
 import {ProgramCommitteeMember} from "../model/program-committee-member";
 import {Paper} from "../model/paper";
+import {User} from "../model/user";
 
 @Injectable()
 export class ConferenceService {
@@ -34,5 +35,10 @@ export class ConferenceService {
 
   addPaper(conferenceId: number, paper: Paper): Observable<Message> {
     return this.httpClient.post<Message>(`${this.conferencesUrl}/${conferenceId}/addPaper`, paper);
+  }
+
+  addParticipant(conferenceId: number, user: User): Observable<Message>{
+    console.log(user);
+    return this.httpClient.post<Message>(`${this.conferencesUrl}/${conferenceId}/addParticipant`, user);
   }
 }
