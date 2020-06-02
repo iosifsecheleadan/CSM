@@ -24,7 +24,7 @@ public class ConferenceController {
     ConferenceService conferenceService;
 
     @RequestMapping(value = "/conferences", method = RequestMethod.POST)
-    ResponseEntity<Message> saveUser(@RequestBody Conference conference) {
+    ResponseEntity<Message> saveConference(@RequestBody Conference conference) {
         try {
             conferenceService.addConference(conference);
             return new ResponseEntity<>(new Message("okay"),HttpStatus.OK);
