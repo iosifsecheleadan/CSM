@@ -24,7 +24,7 @@ public class ProgramCommitteeMemberService {
             m.setAffiliation(member.getAffiliation());
             m.setEmail(member.getEmail());
             m.setWebPage(member.getWebPage());
-            m.setCoChair(member.isCoChair());
+            //m.setCoChair(member.isCoChair());
             m.setHasRegistered(member.isHasRegistered());
             programCommitteeMemberRepository.save(m);
         });
