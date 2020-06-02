@@ -21,6 +21,8 @@ import { UploadAbstractComponent } from './upload-abstract/upload-abstract.compo
 import { UploadFullComponent } from './upload-full/upload-full.component';
 import { UploadPresentationComponent } from './upload-presentation/upload-presentation.component';
 import {PaperService} from "./service/paper-service";
+import {ReviewPaperComponent} from "./review-paper/review-paper.component";
+import {ReviewService} from "./service/review-service";
 
 
 @NgModule({
@@ -39,7 +41,7 @@ import {PaperService} from "./service/paper-service";
     UploadAbstractComponent,
     UploadFullComponent,
     UploadPresentationComponent,
-
+    ReviewPaperComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +54,8 @@ import {PaperService} from "./service/paper-service";
   providers: [
     UserService,
     ConferenceService,
-    PaperService
+    PaperService,
+    ReviewService
   ]
 })
 export class AppModule {

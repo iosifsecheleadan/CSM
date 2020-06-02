@@ -20,6 +20,7 @@ export class ConferenceMenuComponent implements OnInit {
   showUploadAbstract: boolean;
   showUploadFull: boolean;
   showUploadPresentation: boolean;
+  showReviewPaper: boolean;
 
   constructor(private userService: UserService, private router: Router) {
     this.user = this.userService.getCurrentUser();
@@ -28,6 +29,7 @@ export class ConferenceMenuComponent implements OnInit {
     this.showUploadAbstract = false;
     this.showUploadFull = false;
     this.showUploadPresentation = false;
+    this.showReviewPaper = false;
   }
 
   ngOnInit(): void {
@@ -35,6 +37,12 @@ export class ConferenceMenuComponent implements OnInit {
     this.conference.programCommittee.forEach(member => {
       if (member.user.username === this.user.username && member.hasRegistered === false) {
         this.showRegisterPCM = true;
+      }
+    });
+    // showReviewPaper
+    this.conference.programCommittee.forEach(member => {
+      if (member.user.username === this.user.username) {
+        this.showReviewPaper = true;
       }
     });
     // showSubmitPaper
