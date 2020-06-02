@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -46,6 +47,8 @@ public class ConferenceService {
         for (int i=0; i<SCMembers.size();i++) {
             SCMembers.set(i, userService.getUser(SCMembers.get(i).getUsername()));
         }
+        List<User> participants = new ArrayList<>();
+        conference.setParticipants(participants);
         conference.setSteeringCommittee(SCMembers);
         conferenceRepository.save(conference);
     }
@@ -63,5 +66,11 @@ public class ConferenceService {
         paperService.addPaper(paper);
         Conference conference = conferenceRepository.getOne(id);
         conference.addPaper(paper);
+    }
+
+    @Transactional
+    public void addParticipant(int id, User user) throws MyException {
+        Conference conference = conferenceRepository.getOne(id);
+        conference.addParticipant(user);
     }
 }

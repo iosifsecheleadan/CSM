@@ -34,7 +34,8 @@ export class CreateConferenceComponent implements OnInit {
       reviewingDeadline: [],
       PCMembers: [],
       coChairs: [],
-      steeringCommittee: []
+      steeringCommittee: [],
+      participants: []
     });
     this.errorMessage = "";
     this.formCreate.patchValue({"numberReviewers": "3"});
@@ -109,7 +110,8 @@ export class CreateConferenceComponent implements OnInit {
       name: name,
       callForPapers: callForPapers,
       numberReviewers: numberReviewers,
-      papers: []
+      papers: [],
+      participants: []
     };
   }
 
