@@ -3,7 +3,7 @@
   <app-conference-menu [conference]="conference"></app-conference-menu>
 </div>
 
-<div class="container">
+<div *ngIf="conference" class="container">
   <h3><i>Conference overview</i></h3>
   <table>
     <tr>
