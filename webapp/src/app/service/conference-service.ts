@@ -37,7 +37,7 @@ export class ConferenceService {
     return this.httpClient.post<Message>(`${this.conferencesUrl}/${conferenceId}/addPaper`, paper);
   }
 
-  addParticipant(conferenceId: number, user: User): Observable<Message>{
+  addParticipant(conferenceId: number, user: User): Observable<Message> {
     console.log(user);
     return this.httpClient.post<Message>(`${this.conferencesUrl}/${conferenceId}/addParticipant`, user);
   }

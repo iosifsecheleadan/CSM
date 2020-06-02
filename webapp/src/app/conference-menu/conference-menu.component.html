@@ -7,7 +7,7 @@
 <nav class="nav">
   <a class="nav-item nav-link text-info" routerLink="/conference-overview/{{conference.id}}" routerLinkActive="active">Overview</a>
   <a *ngIf="showSubmitPaper" class="nav-item nav-link text-info" routerLink="/submit-paper/{{conference.id}}" routerLinkActive="active">Submit a paper</a>
-  <a  class="nav-item nav-link text-info" routerLink="/participate/{{conference.id}}" routerLinkActive="active">Participate</a>
+  <a *ngIf="showParticipate" class="nav-item nav-link text-info" routerLink="/participate/{{conference.id}}" routerLinkActive="active">Participate</a>
   <a *ngIf="showRegisterPCM" class="nav-item nav-link text-info" routerLink="/pcmember-registration-conference/{{conference.id}}" routerLinkActive="active">Register as Program Committee Member</a>
   <a *ngIf="showUploadAbstract" class="nav-item nav-link text-info" routerLink="/upload-abstract/{{conference.id}}" routerLinkActive="active">(Re)upload abstract paper</a>
   <a *ngIf="showUploadFull" class="nav-item nav-link text-info" routerLink="/upload-full/{{conference.id}}" routerLinkActive="active">(Re)upload full paper</a>

@@ -48,6 +48,5 @@ public class Conference {
         this.papers.add(paper);
     }
     //TODO: SECTIONS FIELD (ON CLIENT SIDE TOO)
-    //TODO: PARTICIPANTS FIELD? (ON CLIENT SIDE TOO)
 
 }
