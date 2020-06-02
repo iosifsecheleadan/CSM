@@ -49,7 +49,7 @@ export class PcmemberRegistrationConferenceComponent implements OnInit {
     const email = this.formRegister.value["email"];
     const webPage = this.formRegister.value["webPage"];
     const user = this.userService.getCurrentUser();
-    const pcMember = {user: user, name: name, affiliation: affiliation, email: email, webPage: webPage, isCoChair: false, hasRegistered: true};
+    const pcMember = {id: 0, user: user, name: name, affiliation: affiliation, email: email, webPage: webPage, coChair: false, hasRegistered: true};
     console.log(pcMember);
 
     this.conferenceService.registerPCMember(pcMember, this.conference.id).subscribe(
