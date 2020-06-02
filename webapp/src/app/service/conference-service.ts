@@ -19,7 +19,6 @@ export class ConferenceService {
   }
 
   getConferences(): Observable<Array<Conference>> {
-    console.log("getting conf");
     return this.httpClient.get<Array<Conference>>(this.conferencesUrl);
   }
 
@@ -34,7 +33,6 @@ export class ConferenceService {
   }
 
   addPaper(conferenceId: number, paper: Paper): Observable<Message> {
-    console.log(paper);
     return this.httpClient.post<Message>(`${this.conferencesUrl}/${conferenceId}/addPaper`, paper);
   }
 }
