@@ -24,6 +24,8 @@ import {PaperService} from "./service/paper-service";
 import {ReviewPaperComponent} from "./review-paper/review-paper.component";
 import {ReviewService} from "./service/review-service";
 import { ParticipateComponent } from './participate/participate.component';
+import {CreateSectionComponent} from "./create-section/create-section.component";
+import {SectionService} from "./service/section-service";
 
 
 @NgModule({
@@ -43,7 +45,8 @@ import { ParticipateComponent } from './participate/participate.component';
     UploadFullComponent,
     UploadPresentationComponent,
     ReviewPaperComponent,
-    ParticipateComponent
+    ParticipateComponent,
+    CreateSectionComponent
 
   ],
   imports: [
@@ -58,7 +61,8 @@ import { ParticipateComponent } from './participate/participate.component';
     UserService,
     ConferenceService,
     PaperService,
-    ReviewService
+    ReviewService,
+    SectionService
   ]
 })
 export class AppModule {

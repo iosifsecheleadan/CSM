@@ -14,6 +14,7 @@ import {UploadPresentationComponent} from "./upload-presentation/upload-presenta
 import {ReviewPaperComponent} from "./review-paper/review-paper.component";
 
 import {ParticipateComponent} from "./participate/participate.component";
+import {CreateSectionComponent} from "./create-section/create-section.component";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -28,7 +29,8 @@ const routes: Routes = [
   {path: 'upload-full/:id', component: UploadFullComponent},
   {path: 'upload-presentation/:id', component: UploadPresentationComponent},
   {path: 'review-paper/:id', component: ReviewPaperComponent},
-  {path: 'participate/:id', component: ParticipateComponent}
+  {path: 'participate/:id', component: ParticipateComponent},
+  {path: 'create-section/:id', component: CreateSectionComponent}
 ];
 
 @NgModule({
