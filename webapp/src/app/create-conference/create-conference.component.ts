@@ -50,13 +50,14 @@ export class CreateConferenceComponent implements OnInit {
       for (const member of pCommittee1) {
         if (member.length > 0) {
           programCommittee.push({
+            id: 0,
             affiliation: "",
             email: "",
             hasRegistered: false,
-            isCoChair: false,
+            coChair: false,
             name: "",
             user: {username: member, password: ""},
-            webPage: "", ...{}
+            webPage: ""
           });
         }
       }
@@ -66,13 +67,14 @@ export class CreateConferenceComponent implements OnInit {
       for (const member of pCommittee2) {
         if (member.length > 0) {
           programCommittee.push({
+            id: 0,
             affiliation: "",
             email: "",
             hasRegistered: false,
-            isCoChair: true,
+            coChair: true,
             name: "",
             user: {username: member, password: ""},
-            webPage: "", ...{}
+            webPage: ""
           });
         }
       }

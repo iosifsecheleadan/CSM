@@ -1,11 +1,12 @@
 import {User} from "./user";
 
 export class ProgramCommitteeMember {
+  id: number;
   user: User;
   name: string;
   affiliation: string;
   email: string;
   webPage: string;
-  isCoChair: boolean;
+  coChair: boolean;
   hasRegistered: boolean;
 }
