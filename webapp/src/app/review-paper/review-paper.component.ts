@@ -8,6 +8,7 @@ import {switchMap} from "rxjs/operators";
 import {UserService} from "../service/user-service";
 import {ReviewService} from "../service/review-service";
 import {ProgramCommitteeMember} from "../model/program-committee-member";
+import {Paper} from "../model/paper";
 
 @Component({
   selector: 'app-review-paper',
@@ -52,29 +53,33 @@ export class ReviewPaperComponent implements OnInit {
     for (const programCommitteeMember of this.conference.programCommittee) {
       if (programCommitteeMember.user === this.user) {
         this.reviewer = programCommitteeMember;
+        break;
       }
     }
   }
 
   onSubmit(): void {
+    this.errorMessage = "";
     if (this.formReview.value["paper"] === null) {
-      this.errorMessage = "You must select the paper.\n"; return;
+      this.errorMessage += "You must select the paper.\n";
     } if (this.formReview.value["grade"] === null) {
-      this.errorMessage = "You must grade the paper.\n"; return;
+      this.errorMessage += "You must grade the paper.\n";
     } if (this.formReview.value["review"] === null) {
-      this.errorMessage = "You must upload the review.\n"; return;
+      this.errorMessage += "You must upload the review.\n";
     }
     const paperId = this.formReview.value["paper"];
     const paper = this.conference.papers.find(ppr => {
-      if (ppr.id === paperId) { return ppr; }
+      // tslint:disable-next-line:triple-equals
+      if (ppr.id == paperId) { return ppr; }
     });
     const grade = this.formReview.value["grade"];
     const reviewDocPath = this.formReview.value["review"].split("\\");
     const reviewDoc = reviewDocPath[reviewDocPath.length - 1];
+
     this.reviewService.addReview({
       id: 0,
       grade: grade,
-      review: reviewDocPath,
+      review: reviewDoc,
       paper: paper,
       programCommitteeMember: this.reviewer
     }).subscribe((message) => {

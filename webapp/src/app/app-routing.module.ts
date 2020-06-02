@@ -11,8 +11,12 @@ import {SubmitPaperComponent} from "./submit-paper/submit-paper.component";
 import {UploadAbstractComponent} from "./upload-abstract/upload-abstract.component";
 import {UploadFullComponent} from "./upload-full/upload-full.component";
 import {UploadPresentationComponent} from "./upload-presentation/upload-presentation.component";
+<<<<<<< HEAD
 import {ReviewPaperComponent} from "./review-paper/review-paper.component";
 
+=======
+import {ParticipateComponent} from "./participate/participate.component";
+>>>>>>> 87422708d77c4c166e0455af9e8f8038e4246bd0
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -26,7 +30,11 @@ const routes: Routes = [
   {path: 'upload-abstract/:id', component: UploadAbstractComponent},
   {path: 'upload-full/:id', component: UploadFullComponent},
   {path: 'upload-presentation/:id', component: UploadPresentationComponent},
+<<<<<<< HEAD
   {path: 'review-paper/:id', component: ReviewPaperComponent}
+=======
+  {path: 'participate/:id', component: ParticipateComponent}
+>>>>>>> 87422708d77c4c166e0455af9e8f8038e4246bd0
 ];
 
 @NgModule({

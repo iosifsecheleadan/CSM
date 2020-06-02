@@ -19,5 +19,5 @@ public class Review {
     @OneToOne
     private Paper paper;
     @OneToOne
-    private ProgramCommitteeMember reviewer;
+    private ProgramCommitteeMember programCommitteeMember;
 }

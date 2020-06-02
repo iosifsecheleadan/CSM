@@ -9,4 +9,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Message {
     private String message;
+    
+    /*
+    public Message() {}
+
+    public Message(String string) {
+        this.message = string;
+    }
+     */
 }
