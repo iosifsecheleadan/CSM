@@ -28,6 +28,15 @@ export class ReviewPaperComponent implements OnInit {
               private reviewService: ReviewService,
               private userService: UserService) {
               // maybe also userService and paperService
+    this.formReview = this.formBuilder.group({
+      paper: [],
+      grade: [],
+      review: []
+    });
+    this.errorMessage = "";
+  }
+
+  ngOnInit(): void {
     this.route.params.pipe(
       switchMap((params: Params) => this.conferenceService.getConference(+params['id'])))
       .subscribe(conf => {
@@ -45,16 +54,6 @@ export class ReviewPaperComponent implements OnInit {
         this.reviewer = programCommitteeMember;
       }
     }
-    this.formReview = this.formBuilder.group({
-      paper: [],
-      grade: [],
-      review: []
-    });
-    this.errorMessage = "";
-  }
-
-  ngOnInit(): void {
-    console.log(this.conference.id);
   }
 
   onSubmit(): void {
