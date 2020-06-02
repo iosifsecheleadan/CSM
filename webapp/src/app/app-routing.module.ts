@@ -11,6 +11,8 @@ import {SubmitPaperComponent} from "./submit-paper/submit-paper.component";
 import {UploadAbstractComponent} from "./upload-abstract/upload-abstract.component";
 import {UploadFullComponent} from "./upload-full/upload-full.component";
 import {UploadPresentationComponent} from "./upload-presentation/upload-presentation.component";
+import {ReviewPaperComponent} from "./review-paper/review-paper.component";
+
 import {ParticipateComponent} from "./participate/participate.component";
 
 const routes: Routes = [
@@ -25,6 +27,7 @@ const routes: Routes = [
   {path: 'upload-abstract/:id', component: UploadAbstractComponent},
   {path: 'upload-full/:id', component: UploadFullComponent},
   {path: 'upload-presentation/:id', component: UploadPresentationComponent},
+  {path: 'review-paper/:id', component: ReviewPaperComponent},
   {path: 'participate/:id', component: ParticipateComponent}
 ];
 

@@ -21,6 +21,8 @@ import { UploadAbstractComponent } from './upload-abstract/upload-abstract.compo
 import { UploadFullComponent } from './upload-full/upload-full.component';
 import { UploadPresentationComponent } from './upload-presentation/upload-presentation.component';
 import {PaperService} from "./service/paper-service";
+import {ReviewPaperComponent} from "./review-paper/review-paper.component";
+import {ReviewService} from "./service/review-service";
 import { ParticipateComponent } from './participate/participate.component';
 
 
@@ -40,7 +42,8 @@ import { ParticipateComponent } from './participate/participate.component';
     UploadAbstractComponent,
     UploadFullComponent,
     UploadPresentationComponent,
-    ParticipateComponent,
+    ReviewPaperComponent,
+    ParticipateComponent
 
   ],
   imports: [
@@ -54,7 +57,8 @@ import { ParticipateComponent } from './participate/participate.component';
   providers: [
     UserService,
     ConferenceService,
-    PaperService
+    PaperService,
+    ReviewService
   ]
 })
 export class AppModule {
