@@ -21,12 +21,9 @@ import { UploadAbstractComponent } from './upload-abstract/upload-abstract.compo
 import { UploadFullComponent } from './upload-full/upload-full.component';
 import { UploadPresentationComponent } from './upload-presentation/upload-presentation.component';
 import {PaperService} from "./service/paper-service";
-<<<<<<< HEAD
 import {ReviewPaperComponent} from "./review-paper/review-paper.component";
 import {ReviewService} from "./service/review-service";
-=======
 import { ParticipateComponent } from './participate/participate.component';
->>>>>>> 87422708d77c4c166e0455af9e8f8038e4246bd0
 
 
 @NgModule({
@@ -45,12 +42,9 @@ import { ParticipateComponent } from './participate/participate.component';
     UploadAbstractComponent,
     UploadFullComponent,
     UploadPresentationComponent,
-<<<<<<< HEAD
-    ReviewPaperComponent
-=======
-    ParticipateComponent,
+    ReviewPaperComponent,
+    ParticipateComponent
 
->>>>>>> 87422708d77c4c166e0455af9e8f8038e4246bd0
   ],
   imports: [
     BrowserModule,
